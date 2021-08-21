@@ -1,9 +1,13 @@
 def parse_position(pos):
     if pos == "out":
         return (-1, -1)
-    if pos == None:
+    if pos is None:
         return (None, None)
 
     x = ord(pos[0])
     y = ord(pos[1])
-    return 56 - y, x - 97
+    return (56 - y, x - 97)
+
+
+def is_checkmate(board):
+    return False

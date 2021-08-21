@@ -12,7 +12,7 @@ def main():
     player_black = Player("Pranjal", "black")
     player_white = Player("Yashika", "white")
 
-    players = [player_white, player_black] ## [white, black]
+    players = [player_white, player_black]  # [white, black]
 
     moves = 0
 
@@ -20,14 +20,13 @@ def main():
         os.system("clear")
         print(board)
 
-        player_to_move = players[moves%2]
+        player_to_move = players[moves % 2]
         print(f"\n{player_to_move.name}, it is your turn to move")
 
         from_pos = input("Piece to move (position): ")
         to_pos = input("Where to move (position): ")
 
-        while not rules.validate_move(from_pos, to_pos, player_to_move, board):
-            print("Invalid move, please make another move.")
+        while not rules.validate_move(from_pos, to_pos, player_to_move, board.board):
             from_pos = input("Piece to move (position): ")
             to_pos = input("Where to move (position): ")
 

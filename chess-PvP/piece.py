@@ -5,7 +5,7 @@ class Piece:
         self.position = position
 
     def __str__(self):
-        if self.rank == None and self.colour == None:
+        if self.rank is None and self.colour is None:
             return " "
 
         if self.rank == "king" and self.colour == "white":

@@ -1,6 +1,7 @@
 from piece import Piece
 from utils import parse_position
 
+
 class ChessBoard:
     def __init__(self):
         self.white_king = Piece("king", "white", "e1")
@@ -36,6 +37,8 @@ class ChessBoard:
         self.black_pawn6 = Piece("pawn", "black", "f7")
         self.black_pawn7 = Piece("pawn", "black", "g7")
         self.black_pawn8 = Piece("pawn", "black", "h7")
+
+        self.recent_pos = (None, None)
 
     def make_board(self):
         empty = Piece()
@@ -114,12 +117,29 @@ class ChessBoard:
         p8_x, p8_y = parse_position(self.black_pawn8.position)
         self.board[p8_x][p8_y] = self.black_pawn8
 
+    def update_board(self, from_pos, to_pos):
+        self.recent_pos = (from_pos, to_pos)
+
+        from_x, from_y = parse_position(from_pos)
+        to_x, to_y = parse_position(to_pos)
+
+        self.board[to_x][to_y] = self.board[from_x][from_y]
+        self.board[from_x][from_y] = Piece()
+
     def __str__(self):
+        red_pos = parse_position(self.recent_pos[0])
+        green_pos = parse_position(self.recent_pos[1])
+
         str_board = ""
         for i in range(8):
             str_board += f"  ---------------------------------\n{8 - i} |"
             for j in range(8):
-                str_board += f" {self.board[i][j]} |"
+                if (i, j) == red_pos:
+                    str_board += '\x1b[6;37;41m' + " " + f"{self.board[i][j]}" + " " + '\x1b[0m' + "|"
+                elif (i, j) == green_pos:
+                    str_board += '\x1b[6;37;42m' + " " + f"{self.board[i][j]}" + " " + '\x1b[0m' + "|"
+                else:
+                    str_board += f" {self.board[i][j]} |"
             str_board += "\n"
         str_board += "  ---------------------------------\n"
         str_board += "    a   b   c   d   e   f   g   h  "
