@@ -16,7 +16,7 @@ def main():
 
     while not is_checkmate(board):
         # Clear and print chessboard
-        # os.system("clear")
+        os.system("clear")
         print(board)
 
         # Decide player to move
