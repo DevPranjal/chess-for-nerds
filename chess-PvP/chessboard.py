@@ -127,19 +127,37 @@ class ChessBoard:
         self.board[from_x][from_y] = Piece()
 
     def __str__(self):
-        red_pos = parse_position(self.recent_pos[0])
-        green_pos = parse_position(self.recent_pos[1])
+        red_pos = [parse_position(self.recent_pos[0])]
+        green_pos = [parse_position(self.recent_pos[1])]
+        white_pos = [(0, 0), (0, 2), (0, 4), (0, 6),
+                     (1, 1), (1, 3), (1, 5), (1, 7),
+                     (2, 0), (2, 2), (2, 4), (2, 6),
+                     (3, 1), (3, 3), (3, 5), (3, 7),
+                     (4, 0), (4, 2), (4, 4), (4, 6),
+                     (5, 1), (5, 3), (5, 5), (5, 7),
+                     (6, 0), (6, 2), (6, 4), (6, 6),
+                     (7, 1), (7, 3), (7, 5), (7, 7)]
 
         str_board = ""
         for i in range(8):
             str_board += f"  ---------------------------------\n{8 - i} |"
             for j in range(8):
-                if (i, j) == red_pos:
+                if (i, j) in red_pos:
                     str_board += '\x1b[6;37;41m' + " " + f"{self.board[i][j]}" + " " + '\x1b[0m' + "|"
-                elif (i, j) == green_pos:
+                elif (i, j) in green_pos:
                     str_board += '\x1b[6;37;42m' + " " + f"{self.board[i][j]}" + " " + '\x1b[0m' + "|"
+                elif (i, j) in white_pos:
+                    str_board += '\x1b[1;30;47m' + " " + f"{self.board[i][j]}" + " " + '\x1b[0m' + "|"
                 else:
-                    str_board += f" {self.board[i][j]} |"
+                    str_board += '\x1b[2;37;40m' + " " + f"{self.board[i][j]}" + " " + '\x1b[0m' + "|"
+
+                ##else:
+                ##    if self.board[i][j].colour == "black":
+                ##        str_board += " " + '\x1b[1;37;46m' + f"{self.board[i][j]}" + '\x1b[0m' + " |"
+                ##    elif self.board[i][j].colour == "white":
+                ##        str_board += " " + '\x1b[1;30;47m' + f"{self.board[i][j]}" + '\x1b[0m' + " |"
+                ##    else:
+                ##        str_board += f" {self.board[i][j]} |"
             str_board += "\n"
         str_board += "  ---------------------------------\n"
         str_board += "    a   b   c   d   e   f   g   h  "

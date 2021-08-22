@@ -4,7 +4,7 @@ from utils import parse_position
 def validate_position_string(pos):
     result = len(pos) == 2 and (97 <= ord(pos[0]) <= 104) and (49 <= ord(pos[1]) <= 56)
     if not result:
-        print(f"Format of positions entered is wrong, please refer the docs.{ord(pos[1])}")
+        print(f"Format of positions entered is wrong, please refer the docs.")
 
     return result
 
@@ -140,10 +140,10 @@ def rules_rook(from_pos, to_pos, board):
 
 def rules_pawn(from_pos, to_pos, board):
     ## TODO: Check for 'check' before
-    ## TODO: Check for capture
     from_x, from_y = parse_position(from_pos)
     to_x, to_y = parse_position(to_pos)
 
+    # First check if 
     if (board[from_x][from_y].colour == "black" and ((from_x == 1 and to_x == 3 and from_y == to_y) or to_x - from_x == 1)) or \
         (board[from_x][from_y].colour == "white" and ((from_x == 6 and to_x == 4 and from_y == to_y) or from_x - to_x == 1)):
 
