@@ -1,7 +1,6 @@
 from chessboard import ChessBoard
-from player import Player
 import rules
-from utils import is_checkmate
+from utils import is_checkmate, get_players
 import os
 
 
@@ -9,10 +8,9 @@ def main():
     board = ChessBoard()
     board.make_board()
 
-    player_black = Player("Pranjal", "black")
-    player_white = Player("Yashika", "white")
-
-    players = [player_white, player_black]
+    os.system("clear")
+    print("Lets get started with your names: ")
+    players = get_players()
 
     moves = 0
 

@@ -1,3 +1,5 @@
+from player import Player
+
 def parse_position(pos):
     if pos == "out":
         return (-1, -1)
@@ -11,3 +13,9 @@ def parse_position(pos):
 
 def is_checkmate(board):
     return False
+
+
+def get_players():
+    player_white = input("Name of player who takes white: ")
+    player_black = input("Name of player who takes black: ")
+    return [Player(player_white, "white"), Player(player_black, "black")]
