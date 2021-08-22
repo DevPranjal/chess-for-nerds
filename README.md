@@ -10,6 +10,13 @@ cd Chess-for-Nerds/chess-PvP/
 python play.py
 ```
 
+### Rules
+
+- General Rules can be found [here](https://en.wikipedia.org/wiki/Rules_of_chess)
+- Specific rules are:
+  - Enter position on the board to locate a square, eg. a1 or h4
+  - Capital letter represent white, small letters represent black
+
 ### Features checklist:
 
 - [x] Basic rules: Proper moving and capturing
