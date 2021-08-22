@@ -1,6 +1,6 @@
 from chessboard import ChessBoard
 import rules
-from utils import is_checkmate, get_players
+from utils import is_checkmate, is_check, get_players
 import os
 
 
@@ -16,7 +16,7 @@ def main():
 
     while not is_checkmate(board):
         # Clear and print chessboard
-        os.system("clear")
+        # os.system("clear")
         print(board)
 
         # Decide player to move
@@ -28,7 +28,12 @@ def main():
         to_pos = input("Where to move (position): ")
 
         # Validate against rules
-        while not rules.validate_move(from_pos, to_pos, player_to_move, board.board):
+        while not rules.validate_move(from_pos, to_pos, player_to_move, board):
+            from_pos = input("Piece to move (position): ")
+            to_pos = input("Where to move (position): ")
+
+        # Check for the case of 'check' and if the player addresses it
+        while is_check(from_pos, to_pos, player_to_move, board):
             from_pos = input("Piece to move (position): ")
             to_pos = input("Where to move (position): ")
 

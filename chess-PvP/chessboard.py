@@ -1,5 +1,4 @@
 from piece import Piece
-from utils import parse_position
 
 
 class ChessBoard:
@@ -124,6 +123,7 @@ class ChessBoard:
         to_x, to_y = parse_position(to_pos)
 
         self.board[to_x][to_y] = self.board[from_x][from_y]
+        self.board[from_x][from_y].position = to_pos
         self.board[from_x][from_y] = Piece()
 
     def __str__(self):
@@ -165,6 +165,17 @@ class ChessBoard:
 
     def print_board(self):
         print(self.__str__())
+
+
+def parse_position(pos):
+    if pos == "out":
+        return (-1, -1)
+    if pos is None:
+        return (None, None)
+
+    x = ord(pos[0])
+    y = ord(pos[1])
+    return (56 - y, x - 97)
 
 
 if __name__ == "__main__":

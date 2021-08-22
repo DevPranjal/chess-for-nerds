@@ -21,6 +21,7 @@ python play.py
 
 - [x] Basic rules: Proper moving and capturing
 - [x] Powers of Pieces
-- [ ] Identification of Check and Checkmate positions
+- [x] Identification of Check position
+- [ ] Identification of Checkmate position
 - [ ] Special moves: Castling, En Passant
 - [ ] Players playing on different devices
