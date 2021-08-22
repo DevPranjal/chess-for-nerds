@@ -1,5 +1,5 @@
 # Chess-for-Nerds
-Play chess versus your terminal buddy
+Play chess against your terminal buddy
 
 ### How to Play
 
