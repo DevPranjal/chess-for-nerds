@@ -57,11 +57,12 @@ def rules_pieces(from_pos, to_pos, board, comments_off=False):
 
 
 def rules_king(from_pos, to_pos, board, comments_off=False):
-    ## TODO: Check for 'check' before
     from_x, from_y = parse_position(from_pos)
     to_x, to_y = parse_position(to_pos)
 
-    result = abs(from_x - to_x) == 1 or abs(from_y - to_y) == 1
+    result = (abs(from_x - to_x) == 1 and from_y == to_y) or \
+                (abs(from_y - to_y) == 1 and from_x == to_x) or \
+                (abs(from_y - to_y) == 1 and abs(from_x - to_x) == 1)
     if not result and not comments_off:
         print("King move invalid, please refer to the docs or the game rules.")
 
@@ -76,7 +77,6 @@ def rules_queen(from_pos, to_pos, board, comments_off=False):
 
 
 def rules_bishop(from_pos, to_pos, board, comments_off=False):
-    ## TODO: Check for 'check' before
     from_x, from_y = parse_position(from_pos)
     to_x, to_y = parse_position(to_pos)
 
@@ -107,7 +107,6 @@ def rules_bishop(from_pos, to_pos, board, comments_off=False):
 
 
 def rules_knight(from_pos, to_pos, board, comments_off=False):
-    ## TODO: Check for 'check' before
     from_x, from_y = parse_position(from_pos)
     to_x, to_y = parse_position(to_pos)
 
@@ -119,7 +118,6 @@ def rules_knight(from_pos, to_pos, board, comments_off=False):
 
 
 def rules_rook(from_pos, to_pos, board, comments_off=False):
-    ## TODO: Check for 'check' before
     from_x, from_y = parse_position(from_pos)
     to_x, to_y = parse_position(to_pos)
 
@@ -148,7 +146,6 @@ def rules_rook(from_pos, to_pos, board, comments_off=False):
 
 
 def rules_pawn(from_pos, to_pos, board, comments_off=False):
-    ## TODO: Check for 'check' before
     from_x, from_y = parse_position(from_pos)
     to_x, to_y = parse_position(to_pos)
 

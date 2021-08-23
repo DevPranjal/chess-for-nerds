@@ -47,7 +47,7 @@ def is_check(from_pos, to_pos, player_to_move, board):
                 validate_move(board_cp.black_pawn8.position, board_cp.white_king.position, player, board_cp, True)
 
     if result:
-        print("You are under check!")
+        print("You are / will be under check!")
     return result
 
 
