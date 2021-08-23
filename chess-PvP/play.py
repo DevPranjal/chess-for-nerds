@@ -12,6 +12,15 @@ def main():
     print("Lets get started with your names: ")
     players = get_players()
 
+    os.system("clear")
+    print("Basic rules / notations followed:")
+    print("1. Black Pieces: lower case letters; White Pieces: upper case letters")
+    print("2. When asked for position (to locate a square), the format is for example: a4, h2, b6")
+    print("3. The columns and rows have been mentioned on the sides for convienience")
+    print("\nPress Enter to get started!")
+
+    start = input()
+
     moves = 0
 
     while not is_checkmate(board):
