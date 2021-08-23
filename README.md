@@ -1,6 +1,11 @@
 # Chess-for-Nerds
 Play chess against your terminal buddy
 
+### Samples
+![](./chess-PvP/sample-pics/1.jpg)
+![](./chess-PvP/sample-pics/2.jpg)
+![](./chess-PvP/sample-pics/3.jpg)
+
 ### How to Play
 
 On your favorite terminal paste the following:
