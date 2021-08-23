@@ -2,9 +2,15 @@
 Play chess against your terminal buddy
 
 ### Samples
-![](./chess-PvP/sample-pics/1.jpg)
-![](./chess-PvP/sample-pics/2.jpg)
-![](./chess-PvP/sample-pics/3.jpg)
+- Most recent move colored:
+
+> ![](./chess-PvP/sample-pics/1.jpg)
+- Error on invalid moves:
+
+> ![](./chess-PvP/sample-pics/2.jpg)
+- Identifies the 'CHECK' position:
+
+> ![](./chess-PvP/sample-pics/3.jpg)
 
 ### How to Play
 
