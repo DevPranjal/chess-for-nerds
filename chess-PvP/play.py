@@ -45,6 +45,9 @@ def main():
         while is_check(from_pos, to_pos, player_to_move, board):
             from_pos = input("Piece to move (position): ")
             to_pos = input("Where to move (position): ")
+            while not rules.validate_move(from_pos, to_pos, player_to_move, board):
+                from_pos = input("Piece to move (position): ")
+                to_pos = input("Where to move (position): ")
 
         # Update positions
         board.update_board(from_pos, to_pos)
